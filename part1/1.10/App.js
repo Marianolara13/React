@@ -21,8 +21,8 @@ const Statistics = (props) => {
           <Statistic text="neutral" value={props.neutral} />
           <Statistic text="bad" value={props.bad} />
           <Statistic text="all" value={props.good + props.neutral + props.bad} />
-          <Statistic text="average" value={(props.good - props.bad) / all} />
-          <Statistic text="positive" value={`${(props.good / props.all) * 100}%`} />
+          <Statistic text="average" value={all > 0 ? (props.good - props.bad) / all : 0} />
+          <Statistic text="positive" value={all > 0 ? `${(props.good / all) * 100}%` : 0} />
         </div> 
         : "No feedback given"} 
       </>
